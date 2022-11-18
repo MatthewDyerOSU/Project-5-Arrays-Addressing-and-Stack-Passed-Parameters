@@ -22,10 +22,10 @@ HI = 50
 
 ; (insert variable definitions here)
 intro1			BYTE	"Generating, Sorting, and Counting Random Integers! Programmed by Matthew Dyer",13,10,13,10,
-					"This program generates 200 random integers between 15 and 50, inclusive.",0
+						"This program generates 200 random integers between 15 and 50, inclusive.",0
 intro2			BYTE	"It then displays the original list, sorts the list, displays the median value of the list,",13,10,
-					"displays the list sorted in ascending order, and finally displays the number of instances",13,10,
-					"of each generated value, starting with the lowest number.",13,10,0
+						"displays the list sorted in ascending order, and finally displays the number of instances",13,10,
+						"of each generated value, starting with the lowest number.",13,10,0
 randArray		DWORD	ARRAYSIZE	DUP(?)
 space			BYTE	" ",0
 unsortedString	BYTE	"Your unsorted random numbers:",0
@@ -33,8 +33,9 @@ medianString	BYTE	"The median value of the array: ",0
 sortedString	BYTE	"Your sorted random numbers:",0
 instanceString	BYTE	"Your list of instances of each generated number, starting with the smallest value:",0
 outtro			BYTE	"Goodbye, and thanks for using my program!",13,10,0
-countArray		DWORD	(HI-LO)+1	DUP(0)	
+countArray		DWORD	HI-LO+1	DUP(0)	
 countLength		DWORD	LENGTHOF countArray
+arrayLength		DWORD	LENGTHOF randArray
 .code
 
 main PROC
@@ -52,7 +53,7 @@ main PROC
 	CALL	fillArray
 
 ; Loop through randArray and print all numbers, 10 per line
-	PUSH	ARRAYSIZE
+	PUSH	arrayLength
 	PUSH	OFFSET	randArray
 	PUSH	OFFSET	space
 	PUSH	OFFSET	unsortedString
@@ -71,7 +72,7 @@ main PROC
 	CALL	CrLf
 
 ; Display the sorted array
-	PUSH	ARRAYSIZE
+	PUSH	arrayLength
 	PUSH	OFFSET	randArray
 	PUSH	OFFSET	space
 	PUSH	OFFSET	sortedString
@@ -354,7 +355,7 @@ displayList PROC
 	POP		EBX
 	POP		EAX
 	POP		EBP
-	RET		8	
+	RET		16	
 displayList ENDP
 ;-----------------------------------------------------------------------------------------
 
