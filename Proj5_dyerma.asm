@@ -430,6 +430,7 @@ goodbye	PROC
 	PUSH	EDX
 	MOV		EDX, [EBP+8]
 	CALL	WriteString
+	POP		EDX
 	POP		EBP
 	RET		4
 goodbye ENDP

@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30146.0	    11/18/22 13:08:08
+Microsoft (R) Macro Assembler Version 14.29.30146.0	    11/20/22 11:18:16
 <Project 5: Arrays, Addressing, and Stack Passed Parameters   Page 1 - 1
 
 
@@ -575,13 +575,14 @@ Microsoft (R) Macro Assembler Version 14.29.30146.0	    11/18/22 13:08:08
  0000023E  52				PUSH	EDX
  0000023F  8B 55 08			MOV		EDX, [EBP+8]
  00000242  E8 00000000 E		CALL	WriteString
- 00000247  5D				POP		EBP
- 00000248  C2 0004			RET		4
- 0000024B			goodbye ENDP
+ 00000247  5A				POP		EDX
+ 00000248  5D				POP		EBP
+ 00000249  C2 0004			RET		4
+ 0000024C			goodbye ENDP
 				;-----------------------------------------------------------------------------------------
 
 				END main
-Microsoft (R) Macro Assembler Version 14.29.30146.0	    11/18/22 13:08:08
+Microsoft (R) Macro Assembler Version 14.29.30146.0	    11/20/22 11:18:16
 <Project 5: Arrays, Addressing, and Stack Passed Parameters   Symbols 2 - 1
 
 
@@ -676,7 +677,7 @@ Segments and Groups:
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
 _DATA  . . . . . . . . . . . . .	32 Bit	 00000620 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 0000024B Para	  Public  'CODE'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000024C Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -797,7 +798,7 @@ displayMedian  . . . . . . . . .	P Near	 0000015E _TEXT	Length= 00000058 Public 
 exchangeElements . . . . . . . .	P Near	 0000014A _TEXT	Length= 00000014 Public STDCALL
 fillArray  . . . . . . . . . . .	P Near	 000000E6 _TEXT	Length= 0000002D Public STDCALL
   _fillLoop  . . . . . . . . . .	L Near	 000000F4 _TEXT	
-goodbye  . . . . . . . . . . . .	P Near	 0000023B _TEXT	Length= 00000010 Public STDCALL
+goodbye  . . . . . . . . . . . .	P Near	 0000023B _TEXT	Length= 00000011 Public STDCALL
 introduction . . . . . . . . . .	P Near	 000000C3 _TEXT	Length= 00000023 Public STDCALL
 main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 000000C3 Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
